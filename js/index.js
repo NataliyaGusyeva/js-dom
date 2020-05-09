@@ -55,8 +55,14 @@ function opersPressed(ev) {
     display.value += ev.target.innerText;
 }
 
-document.querySelectorAll(".eq button").addEventListener("click", eqCulculated);
+document.querySelector(".eq").addEventListener("click", culculated);
 
-function eqCulculated() {   
+function culculated() {   
     display.value = eval(display.value);
+}
+
+document.querySelector(".delete").addEventListener("click", deleted);
+
+function cdeleted() {   
+    display.value = (display.value);
 }
