@@ -13,7 +13,13 @@ document
     .querySelectorAll(".opers button")
     .forEach((button) => button.addEventListener("click", opersPressed));
 
+const isOper = val => '+-*/'.includes(val);
+
 function opersPressed(ev) {
+    const lastChar = display.value.slice(-1);
+    if (isOper(lastChar)) {
+        display.value = display.value.slice(0, -1);
+    }
     display.value += ev.target.innerText;
 }
 
@@ -24,4 +30,6 @@ function culculated() {
     display.value = eval(display.value);
 }
 
-const digits = document.getElementsByClassName("digits");
+document.querySelector('.all-clear').addEventListener('click', () => display.value = '' );
+
+ 
